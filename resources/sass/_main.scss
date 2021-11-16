@@ -1,0 +1,436 @@
+$sidebar-width: 200px;
+$sidebar-bg: #fff;
+$sidebar-color: #000;
+$sidebar-light-bg: rgba(255, 255, 255, 0.1);
+
+// $sidebar-bg: #23263c;
+// $sidebar-link-hover: #263147;
+$sidebar-link-color: #000;
+$sidebar-link-hover: #000;
+
+$sidebar-hover-bg: rgba(255, 255, 255, 0.1);
+
+$sidebar-active-color: $primary;
+$sidebar-active-bg: rgba(255, 255, 255, 0.05);
+
+$header-shodow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+
+$header-height: 66px;
+
+html,
+body,
+#app {
+    height: 100%;
+}
+
+.layout-grid {
+    display: grid;
+    height: 100%;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: "hd hd" "sb main";
+}
+
+.bd-navbar {
+    grid-area: hd;
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.06);
+    border-bottom: 1px solid #e9eaec;
+    position: relative;
+    background-color: #0078d7;
+    color: #fff;
+}
+
+.bd-sidebar {
+    grid-area: sb;
+    //   width: 256px;
+    width: $sidebar-width;
+    display: flex;
+    position: relative;
+    height: 100%;
+    //   background-color: #fff;
+}
+
+.bd-main {
+    grid-area: main;
+    overflow: auto;
+    position: relative;
+}
+
+.card-header {
+    background-color: #fff;
+}
+.tab {
+    display: flex;
+    border-bottom: 1px solid #e9ebee;
+}
+
+.tab-link {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    border-bottom: 3px solid transparent;
+    color: #1c1c1c;
+}
+
+.tab-link:hover {
+    text-decoration: none;
+    border-bottom-color: #eee;
+}
+
+.tab-item + .tab-item {
+    margin-left: 1px;
+}
+
+.tab-item.active .tab-link,
+.tab-link.active {
+    border-bottom-color: #174487;
+    color: #174487;
+}
+ol,
+ul {
+    list-style: none;
+}
+.card-footer a {
+    color: inherit;
+    text-decoration: none;
+}
+.card-footer a:hover {
+    color: #4aa0e6;
+}
+.toggle.ios,
+.toggle-on.ios,
+.toggle-off.ios {
+    border-radius: 20px;
+}
+.toggle.ios .toggle-handle {
+    border-radius: 20px;
+}
+
+.logout {
+    margin-left: auto;
+}
+// .bd-main {
+//   background-color: #F7F8FA;
+// }
+.logo {
+    position: relative;
+    width: 50%;
+}
+
+.sidebar-header {
+    border-bottom: 1px solid #e9eaec;
+}
+
+.card-table {
+    margin-bottom: 0;
+
+    th,
+    td {
+        border-bottom: 1px solid #f0f4f7;
+        padding: 8px 18px;
+    }
+
+    thead th {
+        background: rgba(240, 244, 247, 0.5);
+        color: #737376;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        font-weight: normal;
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+    .td-status {
+        text-align: center;
+        width: 80px;
+    }
+    .td-email {
+        width: 170px;
+
+        > div {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 170px;
+        }
+    }
+
+    .td-checkbox {
+        text-align: center;
+        width: 15px;
+        padding-right: 0;
+    }
+
+    .td-qty {
+        text-align: center;
+        width: 50px;
+    }
+
+    .td-drag,
+    .td-index {
+        text-align: center;
+        width: 10px;
+        padding-right: 0;
+    }
+
+    .td-drag {
+        opacity: 0.5;
+        cursor: move;
+    }
+
+    .td-date {
+        width: 60px;
+    }
+    .td-progress {
+        width: 180px;
+    }
+    .td-action {
+        white-space: nowrap;
+        width: 10px;
+    }
+}
+
+.pagination {
+    margin-bottom: 0;
+    background-color: rgba($light, 0.5);
+    padding: 3px;
+    border-radius: 20px;
+
+    .page-item.disabled .page-link {
+        opacity: 0.5;
+    }
+
+    .page-item + .page-item {
+        margin-left: 6px;
+    }
+
+    .page-link {
+        color: color-yiq($light);
+        background-color: $light;
+        border-color: $light;
+
+        border-radius: 50% !important;
+        min-width: 36px;
+        text-align: center;
+
+        &:hover,
+        &.hover {
+            color: color-yiq($light);
+            background-color: darken($light, 7.5%);
+            border-color: darken($light, 10%);
+
+            cursor: pointer;
+        }
+
+        &:focus,
+        &.focus {
+            box-shadow: 0 0 0 $btn-focus-width rgba($light, 0.5);
+        }
+
+        &:active,
+        &.active {
+            color: color-yiq($light);
+            background-color: darken($light, 10%);
+            border-color: darken($light, 12.5%);
+        }
+    }
+
+    .page-item.active .page-link {
+        color: color-yiq($light);
+        background-color: darken($light, 12.5%);
+        border-color: darken($light, 12.5%);
+
+        &:hover,
+        &.hover {
+            color: color-yiq($light);
+            background-color: darken($light, 12.5%);
+            border-color: darken($light, 12.5%);
+        }
+
+        &:focus,
+        &.focus {
+            box-shadow: 0 0 0 $btn-focus-width rgba($light, 0.5);
+        }
+    }
+}
+
+.avatar {
+    width: 200px;
+    height: 200px;
+
+    background-color: #ccc;
+    border-radius: 50%;
+}
+.avatar img {
+    width: 200px;
+    height: 200px;
+
+    background-color: #ccc;
+    border-radius: 50%;
+}
+
+.nav-profile {
+    border-bottom-width: 0;
+    background-color: #fff;
+
+    .nav-link {
+        border-width: 0;
+        border-radius: 0;
+
+        &.active {
+            background-color: $primary;
+            color: color-yiq($primary);
+        }
+    }
+}
+
+.sidebar-container {
+    position: fixed;
+    top: $header-height;
+    left: 0;
+    bottom: 0;
+    overflow: auto;
+    width: $sidebar-width;
+    background-color: $sidebar-bg;
+    color: $sidebar-color;
+    box-shadow: 1px 0 6px 0 rgba(0, 0, 0, 0.06);
+}
+.sidebar-header {
+    flex: 0 0 auto;
+
+    padding: 12px 16px;
+    border-bottom: 1px solid rgb(255 255 255 / 16%);
+
+    .media-user {
+        .avatar {
+            width: 32px;
+            height: 32px;
+        }
+    }
+}
+
+.sidebar-menu {
+    padding-left: 0;
+}
+.sidebar-menu-item {
+    &:hover {
+        background-color: $sidebar-hover-bg;
+
+        .sidebar-menu-title {
+            color: $sidebar-link-hover;
+        }
+    }
+}
+.sidebar-menu-item-icon {
+    margin-right: 10px;
+    width: 24px;
+}
+.sidebar-menu-item-text {
+    // font-weight: 600;
+    max-width: 140px;
+}
+
+.sidebar-submenu-container {
+    .sidebar-menu-title-container {
+        padding: 8px 16px;
+    }
+
+    &.sidebar-submenu--active {
+        .sidebar-submenu {
+            height: auto;
+            opacity: 1;
+            padding: 0 0 8px 0;
+            margin-left: 50px;
+            padding-right: 8px;
+        }
+
+        .sidebar-menu-item-collapse {
+            transform: rotate(0);
+        }
+    }
+}
+
+.sidebar-menu-item-collapse {
+    transform: rotate(180deg);
+    display: flex;
+    height: 16px;
+    width: 16px;
+}
+
+.sidebar-submenu {
+    overflow: hidden;
+    // margin: 4px 8px 4px 34px;
+    // transition: height 0.2s ease-out, opacity 0.4s ease-out, padding 0.4s ease-out;
+
+    height: 0;
+    opacity: 0;
+    // display: none;
+    // transition: all .4s ease-out;
+}
+
+.sidebar-submenu-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    // color: #333;
+    padding: 5px 0;
+}
+
+.sidebar-menu-title,
+.sidebar-submenu-item-link {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-menu-link,
+.sidebar-submenu-item-link,
+.sidebar-menu-title,
+.sidebar-menu-item-collapse {
+    color: $sidebar-link-color;
+}
+.sidebar-menu-link {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 8px 16px;
+}
+
+.sidebar-menu-link,
+.sidebar-submenu-item-link {
+    &:hover {
+        text-decoration: none;
+        color: $sidebar-link-hover;
+    }
+}
+.sidebar-menu-title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.sidebar-menu-item-collapse {
+    transition: transform 0.2s ease;
+}
+.sidebar-menu-collapse .sidebar-menu-item-collapse {
+    transform: rotate(-180deg);
+}
+
+.sidebar-submenu--active,
+.sidebar-menu-item.active {
+    background-color: $sidebar-active-bg;
+
+    .sidebar-menu-link {
+        color: $sidebar-active-color;
+        cursor: default;
+    }
+}
+.sidebar-submenu-item.active .sidebar-submenu-item-link {
+    color: $sidebar-active-color;
+    cursor: default;
+}
+
+.sidebar-submenu--active {
+    .sidebar-menu-title {
+        color: $sidebar-link-hover;
+    }
+}
